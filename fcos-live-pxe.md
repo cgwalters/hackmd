@@ -63,6 +63,7 @@ Why Live PXE
 ---
 
 - On-premise diskless compute
+- "stateless"
 - Package e.g. numerical simulations as containers
 - BYO orchestration
 
@@ -70,12 +71,39 @@ Why not Live PXE
 ---
 
 - Need to script downloading and using PXE images
+- Not primary path
+- Monthly/periodic reprovisioning is practical too
 - If truly stateless, updates are more expensive
 
+Crafting Ignition
+---
 
+- ssh keys, users, networking
+- (optional) partitioning
+- Private CA certificates
+- systemd units to run podman
 
+Separate /var with Live PXE
+---
 
+- Ignition can create-or-reuse for a partition
+- Mix tradeoffs
+- ➕ e.g. don't need to re-pull containers
+- ➖ Turning off/on again may not fix it
+- tar up /var and move it somewhere else
 
+RHCOS and OpenShift
+---
+
+- Live PXE not shipped by RHCOS (yet)
+- No plans to use in OpenShift 4 yet (but maybe)
+- Would need machine-config-operator awareness
+
+In conclusion
+---
+
+- Fedora CoreOS (incl. Live PXE) available now!
+- https://getfedora.org/coreos/
 
 ----
 

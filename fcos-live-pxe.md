@@ -1,31 +1,26 @@
-Advanced Fedora CoreOS PXE
-===
+### Advanced Fedora CoreOS PXE
 
 https://devconfcz2020a.sched.com/event/YT0S/advanced-ignition-live-pxe-and-chaining-configs
 
-Who/what/why?
----
+### Who/what/why?
 
 - Taking over talk from Andrew Jeddeloh, (former) Ignition maintainer
 - Colin Walters, Red Hat, Inc. - CoreOS/OpenShift engineer
 
-Fedora
----
+### Fedora
 
 - Leading edge operating system
 - Great place to contribute
 - Upstream for RHEL
 - Not just a desktop!
 
-OS/distros over time
----
+### OS/distros over time
 
 - Operating system role changing
 - In IT, historical layers accumulate
 - Containerization and virtualization
 
-(Fedora) CoreOS
----
+### (Fedora) CoreOS
 
 - Container focused server OS
 - Successor to Container Linux (original CoreOS)
@@ -33,16 +28,14 @@ OS/distros over time
 - Part of Fedora
 - Now just out of preview!
 
-(Fedora|RHEL) CoreOS
----
+### (Fedora|RHEL) CoreOS
 
 - Ignition
 - (rpm)-OSTree
 - Automatic updates on by default
 - Container focused
 
-PXE
----
+### PXE
 
 - Bare metal usage
 - i.e. FCOS not just for clouds!
@@ -51,40 +44,35 @@ PXE
 - BIOS/firmware broadcasts a DHCP request
 - Server provides kernel/initramfs over network
 
-Live PXE for real
----
+### Live PXE for real
 
 - May or may not have disks
 - "live": OS runs from RAM
 - Currently OS is in the initramfs
 - Compare w/Anaconda
 
-Why Live PXE
----
+### Why Live PXE
 
 - On-premise diskless compute
 - "stateless"
 - Package e.g. numerical simulations as containers
 - BYO orchestration
 
-Why not Live PXE
----
+### Why not Live PXE
 
 - Need to script downloading and using PXE images
 - Not primary path
 - Monthly/periodic reprovisioning is practical too
 - If truly stateless, updates are more expensive
 
-Crafting Ignition
----
+### Crafting Ignition
 
 - ssh keys, users, networking
 - (optional) partitioning
 - Private CA certificates
 - systemd units to run podman
 
-Separate /var with Live PXE
----
+### Separate /var with Live PXE
 
 - Ignition can create-or-reuse for a partition
 - Mix tradeoffs
@@ -92,20 +80,18 @@ Separate /var with Live PXE
 - ➖ Turning off/on again may not fix it
 - tar up /var and move it somewhere else
 
-RHCOS and OpenShift
----
+### RHCOS and OpenShift
 
 - Live PXE not shipped by RHCOS (yet)
 - No plans to use in OpenShift 4 yet (but maybe)
 - Would need machine-config-operator awareness
 
-In conclusion
----
+### In conclusion
 
 - Fedora CoreOS (incl. Live PXE) available now!
 - https://getfedora.org/coreos/
 
-----
+<!-- ----
 
 PREVIOUS NOTES
 ===
@@ -145,3 +131,5 @@ Platform independence of persistent data: Boot w/qemu, persistent storage, boot 
 Testing PXE:
 - https://gist.github.com/cgwalters/bf6f5b6f788d01211dbe6cd362309a0d
 - https://gist.github.com/ajeddeloh/15470b6e9b042bb89b00d88627c6216e
+
+-->

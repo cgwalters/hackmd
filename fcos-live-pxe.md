@@ -1,6 +1,8 @@
-### Advanced Fedora CoreOS PXE
-
-https://devconfcz2020a.sched.com/event/YT0S/advanced-ignition-live-pxe-and-chaining-configs
+---
+author: Colin Walters
+title: Fedora CoreOS PXE
+date: January 23, 2020
+---
 
 ### Who/what/why?
 
@@ -32,7 +34,7 @@ https://devconfcz2020a.sched.com/event/YT0S/advanced-ignition-live-pxe-and-chain
 
 - Ignition
 - (rpm)-OSTree
-- Automatic updates on by default
+- Automatic updates on by default (*)
 - Container focused
 
 ### PXE
@@ -61,6 +63,7 @@ https://devconfcz2020a.sched.com/event/YT0S/advanced-ignition-live-pxe-and-chain
 ### Why not Live PXE
 
 - Need to script downloading and using PXE images
+- BYO orchestration
 - Not primary path
 - Monthly/periodic reprovisioning is practical too
 - If truly stateless, updates are more expensive

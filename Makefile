@@ -2,5 +2,5 @@
 getreveal:
 	test -d reveal.js || curl -L https://github.com/hakimel/reveal.js/archive/master.tar.gz | tar -xzf - && mv reveal.js-master reveal.js
 
-%.html: %.md
-	pandoc -t revealjs -s -o $@ $<
+%.html: %.md Makefile
+	pandoc -Vtheme=simple -t revealjs -s -o $@ $<

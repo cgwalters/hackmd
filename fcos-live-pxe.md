@@ -30,7 +30,7 @@ date: January 23, 2020
 - [Part of Fedora](https://getfedora.org/en/coreos/)
 - Now [out of preview](https://fedoramagazine.org/fedora-coreos-out-of-preview/)!
 
-### (Fedora|RHEL) CoreOS
+### CoreOS Ingredients
 
 - Ignition
 - (rpm)-OSTree
@@ -43,8 +43,13 @@ date: January 23, 2020
 - i.e. FCOS not just for clouds!
 - Control over your computers
 - Live image is just another FCOS image type
+
+### PXE (actually)
+
 - BIOS/firmware broadcasts a DHCP request
 - Server provides kernel/initramfs over network
+- Ignition runs in initramfs
+- FCOS rootfs in initramfs (squashfs)
 
 ### [Live PXE config](https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/#_live_pxe)
 

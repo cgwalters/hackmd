@@ -1,0 +1,38 @@
+# Example of creating a /var partition on /dev/
+variant: fcos
+version: 1.0.0
+passwd:
+  users:
+    - name: walters
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOQkQHeKan3X+g1jILw4a3KtcfEIED0kByKGWookU7ev walters+2015-general@verbum.org
+      groups:
+        - wheel
+        - sudo
+systemd:
+  units:
+    - name: var.mount
+      enabled: true
+      contents: |
+        [Unit]
+        Before=local-fs.target
+        [Mount]
+        Where=/var
+        What=/dev/disk/by-partlabel/var
+        [Install]
+        WantedBy=local-fs.target
+storage:
+  disks:
+    - device: /dev/vda
+      wipe_table: true
+      partitions:
+        - label: var
+          size_mib: 1536
+          wipe_partition_entry: true
+#          should_exist: false
+  filesystems:
+    - path: /var
+      device: /dev/disk/by-partlabel/var
+      format: xfs
+      wipe_filesystem: false
+      label: var

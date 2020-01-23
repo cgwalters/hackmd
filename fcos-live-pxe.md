@@ -25,10 +25,10 @@ date: January 23, 2020
 ### (Fedora) CoreOS
 
 - Container focused server OS
-- Successor to Container Linux (original CoreOS)
+- Successor to Container Linux (original CoreOS) and FAH
 - Upstream to RHEL CoreOS
-- Part of Fedora
-- Now just out of preview!
+- [Part of Fedora](https://getfedora.org/en/coreos/)
+- Now [out of preview](https://fedoramagazine.org/fedora-coreos-out-of-preview/)!
 
 ### (Fedora|RHEL) CoreOS
 
@@ -46,10 +46,24 @@ date: January 23, 2020
 - BIOS/firmware broadcasts a DHCP request
 - Server provides kernel/initramfs over network
 
-### Live PXE for real
+### [Live PXE config](https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/#_live_pxe)
 
-- May or may not have disks
+```
+LABEL pxeboot
+    KERNEL fedora-coreos-30.20191014.1-live-kernel-x86_64
+    APPEND ip=dhcp rd.neednet=1 initrd=fedora-coreos-30.20191014.1-live-initramfs.x86_64.img console=tty0 console=ttyS0 ignition.firstboot ignition.platform.id=metal ignition.config.url=http://192.168.1.101/config.ign
+IPAPPEND 2
+```
+
+### Live PXE Demo
+
+- [FCOS downloads](https://getfedora.org/en/coreos/download/)
+- virt-manager direct kernel boot
+
+### Live PXE details
+
 - "live": OS runs from RAM
+- May or may not have disks
 - Currently OS is in the initramfs
 - Compare w/Anaconda
 
@@ -80,12 +94,13 @@ date: January 23, 2020
 - Ignition can create-or-reuse for a partition
 - Mix tradeoffs
 - ➕ e.g. don't need to re-pull containers
+- ➕ unused files can be paged out
 - ➖ Turning off/on again may not fix it
-- tar up /var and move it somewhere else
+- Keep Ignition config, tar up /var and move it somewhere else
 
 ### RHCOS and OpenShift
 
-- Live PXE not shipped by RHCOS (yet)
+- Live image not shipped by RHCOS (yet)
 - No plans to use in OpenShift 4 yet (but maybe)
 - Would need machine-config-operator awareness
 

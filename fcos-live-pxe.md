@@ -34,7 +34,7 @@ date: January 23, 2020
 
 - Ignition
 - (rpm)-OSTree
-- Automatic updates on by default (*)
+- Automatic updates on by default [*](https://github.com/openshift/enhancements/pull/124)
 - Container focused
 
 ### PXE
@@ -101,7 +101,7 @@ IPAPPEND 2
 - ➕ e.g. don't need to re-pull containers
 - ➕ unused files can be paged out
 - ➖ Turning off/on again may not fix it
-- Keep Ignition config, tar up /var and move it somewhere else
+- Keep Ignition config, tar up /var and move it to IaaS cloud
 
 ### RHCOS and OpenShift
 
@@ -111,8 +111,7 @@ IPAPPEND 2
 
 ### In conclusion
 
-- Fedora CoreOS (incl. Live PXE) available now!
-- https://getfedora.org/coreos/
+- Fedora CoreOS (incl. Live PXE) [available now](https://getfedora.org/coreos/)!
 
 <!-- ----
 

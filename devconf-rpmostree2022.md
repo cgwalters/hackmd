@@ -15,7 +15,7 @@ date: January 23, 2022
 
 - Transactional background OS upgrades
   <!-- Either old or new; background: won't disrupt running system -->
-- Image based by default, but [still a Linux system](https://blog.verbum.org/2019/12/23/starting-from-open-and-foss/)
+- [Image based](https://blog.verbum.org/2020/08/22/immutable-%E2%86%92-reprovisionable-anti-hysteresis/) by default, but [still a Linux system](https://blog.verbum.org/2019/12/23/starting-from-open-and-foss/)
 - Separating applications into containers helps upgrades
 - Good integration with RPM because we can't change (our subset of the) world at once
   <!-- Same kernel!  Replacing it is first class -->
@@ -43,7 +43,7 @@ date: January 23, 2022
 
 - [2021.1](https://github.com/coreos/rpm-ostree/releases/tag/v2021.1): `ex apply-live` 
 - [2021.3](https://github.com/coreos/rpm-ostree/releases/tag/v2021.3) `rpm-ostree install -A` stabilized 🎉
-- Also in that release, we switched to a Rust app with C++ library
+- Also in that release, we switched to a Rust app with C/C++ library
 
 ### OK more about ostree native containers
 
@@ -64,7 +64,7 @@ date: January 23, 2022
 ### Status: Works, but still experimental
 
 - **Breaking changes may occur**, e.g. [container commit](https://github.com/ostreedev/ostree-rs-ext/issues/159) and we may change the format.
-- But please do try it out!
+- But please do try it out! ([layering tutorial](https://coreos.github.io/rpm-ostree/layering/))
 
 ### More on the (configuration, code, state) 3-tuple
 
@@ -76,14 +76,16 @@ date: January 23, 2022
   with your code as a container image**.
   <!-- Your configs can go in /etc and get updated -->
   <!-- TBD: secrets -->
-- Big change vs Ignition's "configure once" model 
+- Very big change vs Ignition's "configure once" model 
 - Related: NixOS, OpenShift MCO, Ansible
 
 ### User story
 
 - Build a container with preferred OS state
 - Boot from our disk images, early at install/boot run
-  `rpm-ostree rebase ostree-unverified-registry:quay.io/example/custom:latest --reboot`
+  `rpm-ostree rebase ostree-unverified-registry:quay.io/example/custom:latest --reboot` (better signed, lots of details there)
+- Enable automatic upgrades
+- Pushing a new container will upgrade your systems
 - Probably expose ability to go container → disk image in e.g. osbuild/Image Builder and the like
 
 

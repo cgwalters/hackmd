@@ -9,7 +9,7 @@ date: January 23, 2022
 ### Who/why?
 
 - Colin Walters, Red Hat, Inc. - Fedora/OpenShift/RHEL/CoreOS engineer
-- Why: Computing essential to society, FOSS essential to control computing
+- [Why](https://blog.verbum.org/2021/03/05/why-i-work-on-openshift-and-fedora-rhel/): Computing essential to society, FOSS essential to control computing
 
 ### Overview
 

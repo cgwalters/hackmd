@@ -6,7 +6,7 @@ date: January 23, 2022
 
 <!-- https://devconfcz2022.sched.com/event/siFe/whats-new-in-rpm-ostree-2022-edition -->
 
-### Who/what/why?
+### Who/why?
 
 - Colin Walters, Red Hat, Inc. - Fedora/OpenShift/RHEL/CoreOS engineer
 - Why: Computing essential to society, FOSS essential to control computing
@@ -84,17 +84,28 @@ date: January 23, 2022
 - Build a container with preferred OS state
 - Boot from our disk images, early at install/boot run
   `rpm-ostree rebase ostree-unverified-registry:quay.io/example/custom:latest --reboot`
-- Probably expose ability to go container → disk image in e.g. Image Builder and the like
+- Probably expose ability to go container → disk image in e.g. osbuild/Image Builder and the like
+
+
+### Alternative history
+
+- Pretend dual paritition dm-verity (orig Container Linux) and ostree, etc. hadn't happened
+- A few years pass of Docker then Kubernetes
+- What if we made the host OS boot this way too?
+  (xref [linuxkit](https://github.com/linuxkit/linuxkit) [balena](https://www.balena.io/os/docs/architecture/) etc.)
 
 ### What will happen in 2022?
 
-- Several people are committed to layering
-- But willing to help with other PRs!
+- Several people are committed to this
+- [Splitting image layers](https://github.com/ostreedev/ostree-rs-ext/issues/69) will be a huge
+  effort too.
 - Would like to push forward more docs and `ex apply-live`,
   continue oxidation.  And [rethinking origins](https://github.com/coreos/rpm-ostree/issues/2326).
+- But willing to help with other PRs!
 
 ### Links
 
+- [Fedora Change tracker](https://bugzilla.redhat.com/show_bug.cgi?id=2030707)
 - [rpm-ostree](https://github.com/coreos/rpm-ostree/)
 - [ostree Rust extensions](https://github.com/ostreedev/ostree-rs-ext/)
 

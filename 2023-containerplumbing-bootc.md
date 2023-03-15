@@ -50,25 +50,53 @@ date: March 23, 2023
 - Install the binary on your host
 - `rpm-ostree upgrade` → `bootc upgrade` 
 - `rpm-ostree rebase` → `bootc switch`
+- [Tracker: opinionated automatic updates](https://github.com/containers/bootc/issues/5)
 
 ### Less is more!
 
 - No dependency on rpm
 - ostree is a hidden implementation detail; if you have to understand it *we have failed*
-- However: Seamless in-place switch from existing ostree systems!
 
-### `bootc install`: Actually there is more
+### No operating system left behind
 
-- bootc started out as around 700 LoC; most heavy lifting is in ostree-rust and `skopeo`
+- Seamless in-place switch from existing ostree systems!
+
+### bootc install: Actually there is more
+
+- bootc [started out around 500 LoC](https://github.com/containers/bootc/commit/3ab28788ce3a3fe7a57152c57e28ff6e2a36df14); most heavy lifting is in ostree-rust and `skopeo`
 - Solving "how do I use it": `podman run --privileged ... ghcr.io/cgwalters/c9s-oscore bootc install /dev/nvme0n1`
-- Creates EFI, installs grub, etc.  *Only* handles simple cases!
-- Opinionated install of root filesystem; can boot into target OS and dynamically create other partitions
+- (Though, now there's ~3200 LoC)
 
-### Also `bootc install-to-filesystem`
+### bootc install: How it works
+
+- Creates ESP, installs grub, etc.  *Only* handles simple cases!
+- Opinionated install of root filesystem; can boot into target OS and dynamically create other partitions
+- There's something neat going on here: Your custom OS container image comes with a *free* installer!
+- *Demo time*
+
+### Also bootc install-to-filesystem
 
 - RAID, Stratis, dm-multipath: Use a separate installer
 - We're not going to ship a GUI obviously; but those can use this as a backend
 - Both of these things are (vaguely) planned for e.g. [Anaconda](https://github.com/rhinstaller/anaconda/)
+
+### What's next
+
+- [A CentOS SIG](https://lists.centos.org/pipermail/centos-devel/2023-March/142809.html) "pairing" with upstream bootc
+- But upstream bootc aims to be distro-independent!  Let's see how that goes 😃
+- [ConfigMaps and Secrets](https://github.com/containers/bootc/issues/22) (live updates too?)
+- [apply-live](https://github.com/containers/bootc/issues/76)
+
+### Belated status
+
+- This project is mainly just me, in my 12.7% time
+- I use it to update my desktop, but...probably not "production ready" yet
+- The CLI may change!  (Though unlikely)
+
+### What will the next year bring?
+
+- I think current trajectory may be able to stabilize by EOY?
+- Obviously, hoping to gather other interested people (and OS/distros) to contribute!
 
 ### Links
 

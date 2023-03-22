@@ -42,7 +42,7 @@ date: March 23, 2023
 
 ### Introducing bootc!
 
-- [New bootc project](github.com/containers/bootc)
+- [New bootc project](https://github.com/containers/bootc)
 - A "fresh new coat of paint" in terms of CLI and implementation on top of existing [ostree container](https://github.com/ostreedev/ostree-rs-ext/#module-container-bridging-between-ostree-and-ocidocker-images) bridge
 
 ### How do I use it?

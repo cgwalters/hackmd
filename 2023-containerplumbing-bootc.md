@@ -44,6 +44,7 @@ date: March 23, 2023
 
 - [New bootc project](https://github.com/containers/bootc)
 - A "fresh new coat of paint" in terms of CLI and implementation on top of existing [ostree container](https://github.com/ostreedev/ostree-rs-ext/#module-container-bridging-between-ostree-and-ocidocker-images) bridge
+- A new *experimental* member of the github.com/containers tent
 
 ### How do I use it?
 
@@ -54,12 +55,14 @@ date: March 23, 2023
 
 ### Less is more!
 
-- No dependency on rpm
+- No dependency on rpm (ostree never had one, just vs rpm-ostree)
+- Also, the `switch` CLI is clearer
 - ostree is a hidden implementation detail; if you have to understand it *we have failed*
 
 ### No operating system left behind
 
-- Seamless in-place switch from existing ostree systems!
+- Seamless in-place transactional switch from existing ostree systems!
+- Maintain existing semantics for `/etc` and `/var`
 
 ### bootc install: Actually there is more
 
